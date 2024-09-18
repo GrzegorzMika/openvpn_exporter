@@ -30,8 +30,9 @@ func main() {
 	var (
 		listenAddress      = flag.String("web.listen-address", ":9176", "Address to listen on for web interface and telemetry.")
 		metricsPath        = flag.String("web.telemetry-path", "/metrics", "Path under which to expose metrics.")
-		openvpnStatusPaths = flag.String("openvpn.status_paths", "examples/client.status,examples/server2.status,examples/server3.status", "Paths at which OpenVPN places its status files.")
+		openvpnStatusPaths = flag.String("openvpn.status_paths", "examples/version-2.3/client.status,examples/version-2.3/server2.status,examples/version-2.3/server3.status", "Paths at which OpenVPN places its status files.")
 		ignoreIndividuals  = flag.Bool("ignore.individuals", false, "If ignoring metrics for individuals")
+		openvpnVersion     = flag.String("openvpn.version", "2.3", "Version of OpenVPN to use (e.g., 2.3)")
 		showVersion        = flag.Bool("version", false, "Show version information and exit")
 	)
 	flag.Parse()
@@ -41,13 +42,18 @@ func main() {
 		os.Exit(0)
 	}
 
+	if !isValidOpenVPNVersion(*openvpnVersion) {
+		log.Fatal("openvpn.version must be specified, currently supported versions are 2.3 and 2.4")
+	}
+
 	log.Printf("Starting OpenVPN Exporter\n")
 	log.Printf("Listen address: %v\n", *listenAddress)
 	log.Printf("Metrics path: %v\n", *metricsPath)
 	log.Printf("openvpn.status_path: %v\n", *openvpnStatusPaths)
+	log.Printf("OpenVPN Version: %v\n", *openvpnVersion)
 	log.Printf("Ignore Individuals: %v\n", *ignoreIndividuals)
 
-	exporter, err := exporters.NewOpenVPNExporter(strings.Split(*openvpnStatusPaths, ","), *ignoreIndividuals)
+	exporter, err := exporters.NewOpenVPNExporter(strings.Split(*openvpnStatusPaths, ","), *ignoreIndividuals, *openvpnVersion)
 	if err != nil {
 		panic(err)
 	}
@@ -68,4 +74,8 @@ func main() {
 		}
 	})
 	log.Fatal(http.ListenAndServe(*listenAddress, nil))
+}
+
+func isValidOpenVPNVersion(version string) bool {
+	return version == "2.3" || version == "2.4"
 }
