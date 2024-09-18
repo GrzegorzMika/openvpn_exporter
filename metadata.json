@@ -1,0 +1,75 @@
+{
+  "buildx.build.provenance": {
+    "buildType": "https://mobyproject.org/buildkit@v1",
+    "materials": [
+      {
+        "uri": "pkg:docker/docker/dockerfile@1",
+        "digest": {
+          "sha256": "865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5"
+        }
+      },
+      {
+        "uri": "pkg:docker/busybox@1.35?platform=linux%2Famd64",
+        "digest": {
+          "sha256": "98ad9d1a2be345201bb0709b0d38655eb1b370145c7d94ca1fe9c421f76e245a"
+        }
+      }
+    ],
+    "invocation": {
+      "configSource": {},
+      "parameters": {
+        "frontend": "gateway.v0",
+        "args": {
+          "build-arg:ARCH": "amd64",
+          "build-arg:BUILD_BIN_DIR": ".go/bin",
+          "build-arg:BUILD_DATE": "2024-09-18T10:31:34+0000",
+          "build-arg:BUILD_DIR": "build",
+          "build-arg:BUILD_IMAGE": "golang:1.23.1",
+          "build-arg:COMMIT_SHA1": "0f417cc",
+          "build-arg:GOFLAGS": " -modcacherw",
+          "build-arg:HTTPS_PROXY": "",
+          "build-arg:HTTP_PROXY": "",
+          "build-arg:OS": "linux",
+          "build-arg:OUTBIN": ".go/bin/openvpn_exporter_master_linux_amd64",
+          "build-arg:PWD": "/home/grzegorz/openvpn_exporter",
+          "build-arg:VERSION": "master",
+          "cmdline": "docker/dockerfile:1",
+          "label:ARCH": "amd64",
+          "label:BUILD_DATE": "",
+          "label:COMMIT_SHA1": "",
+          "label:OS": "linux",
+          "label:VERSION": "master",
+          "source": "docker/dockerfile:1"
+        },
+        "locals": [
+          {
+            "name": "context"
+          },
+          {
+            "name": "dockerfile"
+          }
+        ]
+      },
+      "environment": {
+        "platform": "linux/amd64"
+      }
+    }
+  },
+  "buildx.build.ref": "openvpn_exporter/openvpn_exporter0/qus70ijchplswhovx96xasi6k",
+  "cache.manifest": "{\"mediaType\":\"application/vnd.oci.image.index.v1+json\",\"digest\":\"sha256:116ca21eeabc7cbb838e366d692fe5e408c35f2aee4ebb73dcadff5383bbbc17\",\"size\":1553}",
+  "containerimage.config.digest": "sha256:8ae5c316291612ea976dbd4e3d5b3553773b5d51c0e9d163a918d0659c562179",
+  "containerimage.descriptor": {
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "digest": "sha256:0e56f007011af80e16dcafd582d3729cc27cd562971e7f996c0bc183c6c52c3e",
+    "size": 1088,
+    "annotations": {
+      "org.opencontainers.image.created": "2024-09-18T10:31:45Z"
+    },
+    "platform": {
+      "architecture": "amd64",
+      "os": "linux"
+    }
+  },
+  "containerimage.digest": "sha256:0e56f007011af80e16dcafd582d3729cc27cd562971e7f996c0bc183c6c52c3e",
+  "image.name": "docker.io/gregmika/openvpn_exporter:master,docker.io/gregmika/openvpn_exporter:master-0f417cc"
+}

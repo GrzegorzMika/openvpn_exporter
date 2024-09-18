@@ -19,7 +19,7 @@ ALL_PLATFORMS ?= darwin/arm64 darwin/amd64 linux/386 linux/amd64 linux/arm linux
 
 # Where to push the docker image.
 REGISTRY ?= docker.io
-REGISTRY_USER ?= theohbrothers
+REGISTRY_USER ?= gregmika
 
 # This version-strategy uses git refs to set the version string
 # Get the following from left to right: tag > branch > branch of detached HEAD commit
@@ -37,7 +37,7 @@ ifeq ($(OS), windows)
 endif
 IMAGE ?= $(REGISTRY)/$(REGISTRY_USER)/$(BIN)
 
-BUILD_IMAGE ?= golang:1.20
+BUILD_IMAGE ?= golang:1.23.1
 
 # Specify GOFLAGS. E.g. "-mod=vendor"
 GOFLAGS ?=

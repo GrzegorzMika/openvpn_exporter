@@ -1,10 +1,10 @@
 # openvpn_exporter
 
-[![github-actions](https://github.com/theohbrothers/openvpn_exporter/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/theohbrothers/openvpn_exporter/actions/workflows/ci.yml)
+<!-- [![github-actions](https://github.com/theohbrothers/openvpn_exporter/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/theohbrothers/openvpn_exporter/actions/workflows/ci.yml)
 [![github-release](https://img.shields.io/github/v/release/theohbrothers/openvpn_exporter?style=flat-square)](https://github.com/theohbrothers/openvpn_exporter/releases/)
 [![docker-image-size](https://img.shields.io/docker/image-size/theohbrothers/openvpn_exporter/latest)](https://hub.docker.com/r/theohbrothers/openvpn_exporter)
 [![codecov](https://codecov.io/gh/theohbrothers/openvpn_exporter/branch/master/graph/badge.svg)](https://codecov.io/gh/theohbrothers/openvpn_exporter)
-[![go-report-card](https://goreportcard.com/badge/github.com/theohbrothers/openvpn_exporter)](https://goreportcard.com/report/github.com/theohbrothers/openvpn_exporter)
+[![go-report-card](https://goreportcard.com/badge/github.com/theohbrothers/openvpn_exporter)](https://goreportcard.com/report/github.com/theohbrothers/openvpn_exporter) -->
 
 This repository provides code for a simple Prometheus metrics exporter
 for [OpenVPN](https://openvpn.net/). Right now it can parse files
@@ -72,6 +72,8 @@ openvpn_server_connected_clients 1
         Address to listen on for web interface and telemetry. (default ":9176")
   -web.telemetry-path string
         Path under which to expose metrics. (default "/metrics")
+  -openvpn.version string
+         Version of the OpenVPN which is used. Currently 2.3 and 2.4 are supported. (default "2.3")
 ```
 
 E.g:
@@ -88,15 +90,15 @@ To use with docker, the `openvpn` server status file must be mounted in the cont
 docker run --rm \
   -p 9176:9176 \
   -v /etc/openvpn/server.status:/server.status:ro \
-  theohbrothers/openvpn_exporter:latest -openvpn.status_paths /server.status
+  gregmika/openvpn_exporter:latest -openvpn.status_paths /server.status
 ```
 
 Metrics should be available at http://localhost:9176/metrics.
 
-## Get a standalone executable binary
+<!-- ## Get a standalone executable binary
 
 You can download the pre-compiled binaries from the
-[releases page](https://github.com/theohbrothers/openvpn_exporter/releases).
+[releases page](https://github.com/theohbrothers/openvpn_exporter/releases). -->
 
 ## Development
 
