@@ -1,18 +1,19 @@
 module github.com/kumina/openvpn_exporter
 
-go 1.20
+go 1.23.1
 
-require github.com/prometheus/client_golang v0.9.1
+require github.com/prometheus/client_golang v1.20.4
 
 require (
-	github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973 // indirect
-	github.com/gogo/protobuf v1.1.1 // indirect
-	github.com/golang/protobuf v1.2.0 // indirect
-	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
-	github.com/prometheus/client_model v0.0.0-20180712105110-5c3871d89910 // indirect
-	github.com/prometheus/common v0.0.0-20181020173914-7e9e6cabbd39 // indirect
-	github.com/prometheus/procfs v0.0.0-20181005140218-185b4288413d // indirect
-	golang.org/x/sync v0.0.0-20181108010431-42b317875d0f // indirect
+	github.com/beorn7/perks v1.0.1 // indirect
+	github.com/cespare/xxhash/v2 v2.3.0 // indirect
+	github.com/klauspost/compress v1.17.9 // indirect
+	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
+	github.com/prometheus/client_model v0.6.1 // indirect
+	github.com/prometheus/common v0.59.1 // indirect
+	github.com/prometheus/procfs v0.15.1 // indirect
+	golang.org/x/sys v0.25.0 // indirect
+	google.golang.org/protobuf v1.34.2 // indirect
 )
 
-replace github.com/kumina/openvpn_exporter v0.3.0 => github.com/theohbrothers/openvpn_exporter v0.3.0
+replace github.com/kumina/openvpn_exporter v0.3.0 => github.com/GrzegorzMika/openvpn_exporter v0.3.0
