@@ -183,10 +183,11 @@ func (e *OpenVPNExporter) collectServer24StatusFromReader(statusPath string, fil
 			if err != nil {
 				return fmt.Errorf("failed to parse updated time: %v", err)
 			}
+
 			ch <- prometheus.MustNewConstMetric(
 				e.openvpnStatusUpdateTimeDesc,
 				prometheus.GaugeValue,
-				float64(parsedTime.Unix()),
+				float64(parsedTime.UTC().Unix()),
 				statusPath)
 		} else if header, ok := e.openvpnServerHeaders[currentSection]; ok {
 			if currentSection == "CLIENT_LIST" {

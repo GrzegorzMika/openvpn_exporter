@@ -22,10 +22,10 @@
         "args": {
           "build-arg:ARCH": "amd64",
           "build-arg:BUILD_BIN_DIR": ".go/bin",
-          "build-arg:BUILD_DATE": "2024-09-18T10:31:34+0000",
+          "build-arg:BUILD_DATE": "2024-09-18T12:50:29+0000",
           "build-arg:BUILD_DIR": "build",
           "build-arg:BUILD_IMAGE": "golang:1.23.1",
-          "build-arg:COMMIT_SHA1": "0f417cc",
+          "build-arg:COMMIT_SHA1": "ae19599",
           "build-arg:GOFLAGS": " -modcacherw",
           "build-arg:HTTPS_PROXY": "",
           "build-arg:HTTP_PROXY": "",
@@ -55,7 +55,7 @@
       }
     }
   },
-  "buildx.build.ref": "openvpn_exporter/openvpn_exporter0/qus70ijchplswhovx96xasi6k",
+  "buildx.build.ref": "openvpn_exporter/openvpn_exporter0/svxvetofc9rprl86o82k4m22h",
   "cache.manifest": "{\"mediaType\":\"application/vnd.oci.image.index.v1+json\",\"digest\":\"sha256:116ca21eeabc7cbb838e366d692fe5e408c35f2aee4ebb73dcadff5383bbbc17\",\"size\":1553}",
   "containerimage.config.digest": "sha256:8ae5c316291612ea976dbd4e3d5b3553773b5d51c0e9d163a918d0659c562179",
   "containerimage.descriptor": {
@@ -63,7 +63,7 @@
     "digest": "sha256:0e56f007011af80e16dcafd582d3729cc27cd562971e7f996c0bc183c6c52c3e",
     "size": 1088,
     "annotations": {
-      "org.opencontainers.image.created": "2024-09-18T10:31:45Z"
+      "org.opencontainers.image.created": "2024-09-18T12:50:32Z"
     },
     "platform": {
       "architecture": "amd64",
@@ -71,5 +71,5 @@
     }
   },
   "containerimage.digest": "sha256:0e56f007011af80e16dcafd582d3729cc27cd562971e7f996c0bc183c6c52c3e",
-  "image.name": "docker.io/gregmika/openvpn_exporter:master,docker.io/gregmika/openvpn_exporter:master-0f417cc"
+  "image.name": "docker.io/gregmika/openvpn_exporter:master,docker.io/gregmika/openvpn_exporter:master-ae19599"
 }
