@@ -240,7 +240,7 @@ func (e *OpenVPNExporter) collectServerStatusFromReader(statusPath string, file 
 			// Export relevant columns as individual metrics.
 			for _, metric := range header.Metrics {
 				if columnValue, ok := columnValues[metric.Column]; ok {
-					if l, _ := recordedMetrics[metric]; !subslice(labels, l) {
+					if l := recordedMetrics[metric]; !subslice(labels, l) {
 						value, err := strconv.ParseFloat(columnValue, 64)
 						if err != nil {
 							return err
@@ -334,10 +334,10 @@ func (e *OpenVPNExporter) collectClientStatusFromReader(statusPath string, file 
 
 func (e *OpenVPNExporter) collectStatusFromFile(statusPath string, ch chan<- prometheus.Metric) error {
 	conn, err := os.Open(statusPath)
-	defer conn.Close()
 	if err != nil {
 		return err
 	}
+	defer conn.Close()
 	return e.collectStatusFromReader(statusPath, conn, ch)
 }
 

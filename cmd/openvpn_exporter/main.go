@@ -36,7 +36,7 @@ func main() {
 	)
 	flag.Parse()
 
-	log.Printf(version.GetVersion())
+	log.Println(version.GetVersion())
 	if *showVersion {
 		os.Exit(0)
 	}
@@ -55,7 +55,7 @@ func main() {
 
 	http.Handle(*metricsPath, promhttp.Handler())
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(`
+		_, err := w.Write([]byte(`
 			<html>
 			<head><title>OpenVPN Exporter</title></head>
 			<body>
@@ -63,6 +63,9 @@ func main() {
 			<p><a href='` + *metricsPath + `'>Metrics</a></p>
 			</body>
 			</html>`))
+		if err != nil {
+			log.Printf("Error writing HTML: %v", err)
+		}
 	})
 	log.Fatal(http.ListenAndServe(*listenAddress, nil))
 }
